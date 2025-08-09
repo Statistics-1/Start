@@ -2,12 +2,11 @@ class Node:
     def __init__(self, data: int):
         self.data  = data
         self.next  = None
-        
+     
 class LinkyList:
     def __init__(self):
         self.head  = None
         
-    
     def addE (self, n):
         newNode = Node(n)
         if self.head == None:
@@ -51,7 +50,6 @@ class LinkyList:
                 self.head = newNode
         return
         
-    
     def removeE(self):
         current = self.head
         p  = None
@@ -64,11 +62,19 @@ class LinkyList:
     def removeB(self):
         current = self.head
         self.head = self.head.next
-        return current.data
-    
-   
-        
-    
+        return current.data     
+
+    def rev(self):
+        current = self.head
+        per = None
+        while current != 0:
+            nextN = current.next
+            current.next = per
+            per = current
+            current = nextN
+        self.head = current
+        return
+
     def show(self):
         current = self.head
         while current:
